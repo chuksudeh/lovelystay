@@ -1,11 +1,11 @@
 import express from "express";
 const router = express.Router();
-import RestaurantRoute from "./restaurant.routes";
+import GithubRoute from "./github.route";
 
 const defaultRoutes = [
   {
-    path: "/restaurant",
-    route: RestaurantRoute,
+    path: "/github",
+    route: GithubRoute,
   },
 ];
 

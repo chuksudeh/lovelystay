@@ -1,1 +1,1 @@
-export * as RestaurantController from "./restaurants.controller";
+export * as GitHubController from "./github.controller";

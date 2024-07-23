@@ -1,1 +1,1 @@
-export * as RestaurantSchema from "./restaurant.model";
+export * as GithubSchema from "./githubuser.model";

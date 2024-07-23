@@ -1,15 +1,17 @@
-import { Pool } from "pg";
-import dotenv from "dotenv";
+import pgPromise from 'pg-promise';
+import dotenv from 'dotenv';
 dotenv.config();
 
-export const pool = new Pool({
-  connectionString: process.env.DATABASE_URI,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+const initOptions = {};
+const pgp = pgPromise(initOptions);
 
-export default {
-  query: (text: string, params: any[] | undefined[]) =>
-    pool.query(text, params),
+const connection = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false // Use true if you have a valid SSL certificate
+    },
 };
+
+const db = pgp(connection);
+
+export default db;

@@ -11,18 +11,32 @@ services:
     ports:
       - "3300:3300"
     volumes:
-      - .:/usr/src/index
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - db
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+      - app-network
 
   db:
     image: postgres:latest
     environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DATABASE_URL: ${DATABASE_URL}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

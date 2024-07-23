@@ -1,1 +1,1 @@
-export * as RestaurantService from "./restaurant.service";
+export * as GitHubService from "./github.service";
