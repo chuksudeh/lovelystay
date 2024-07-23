@@ -6,35 +6,40 @@ To start the application, run the following commands
 
 This will startup the application locally on port 3300 http://localhost:3300/ 
 
-TO test this application when running locally
-node dist/cli.js fetch <username>
-node dist/cli.js list
-node dist/cli.js list-location <location>
-node dist/cli.js list-location 'Newcastle - England'
+TO test this application when running locally  
+
+- node dist/cli.js fetch <username>
+- node dist/cli.js list
+- node dist/cli.js list-location <location>
+- node dist/cli.js list-location 'Newcastle - England'
 
 
 
-However, to run this application using docker, this will run two containers named index(application container) and db(database container)
-The following commands will startup application using docker
+However, to run this application using docker, this will run two containers named index(application container) and db(database container)  
+
+The following commands will startup application using docker  
+
 - Uncomment the database URL named "run docker container" and comment out "run local"
-- **docker-compose --build -d** This run the containers in the background and the --build flag is to ensure that the docker image is built the first time
+- **docker-compose --build -d** This run the containers in the background and the --build flag is to ensure that the docker image is built the first time  
 
-Subsequently, to startup the containers, docker-compose -d should suffice unless changes are made to the package.json or Dockerfile.
+Subsequently, to startup the containers, docker-compose -d should suffice unless changes are made to the package.json or Dockerfile.  
 
 To test this application when running on docker,
-http://localhost:3300/github/users This will fecth all the usersin in the database
-http://localhost:3300/github/fetch/{github_username} this will fecth the credentials of any github user when specifying the github username
+http://localhost:3300/github/users This will fecth all the usersin in the database  
+
+http://localhost:3300/github/fetch/{github_username} this will fecth the credentials of any github user when specifying the github username  
 http://localhost:3300/github/users/location/{location} this fetches user according to the location
 
 
-TO test this application when running locally
-node dist/cli.js fetch <username>
-node dist/cli.js list
-node dist/cli.js list-location <location>
-node dist/cli.js list-location 'Newcastle - England'
+TO test this application when running locally  
+
+- node dist/cli.js fetch <username>
+- node dist/cli.js list
+- node dist/cli.js list-location <location>
+- node dist/cli.js list-location 'Newcastle - England'
 
 
-Docker Image Hardening solutions on the application explained
+Docker Image Hardening solutions on the application explained  
 
 Docker Compose File:
 
@@ -59,6 +64,7 @@ The RUN addgroup -S appgroup && adduser -S appuser -G appgroup command ensures t
 
 Improvements:
 
-Log aggregation: Pulling all logs from the docker container and managing it one place using tools like splunk
+Log aggregation: Pulling all logs from the docker container and managing it one place using tools like splunk  
+
 SSL: the connection done between the application and database is over http. however, this should be done via https if an ssl certifcate exists
 
