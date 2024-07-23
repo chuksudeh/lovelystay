@@ -1,5 +1,5 @@
-To start the application, run the following commands
-- Uncomment the database URL named "run local" and comment out "run docker container"
+To start the application locally without runnin docker, run the following commands
+- Uncomment the "DATABASE_URL" under "run local" and comment out "DATABASE_URL" and "POSTGRES_PASSWORD" under "run docker container"
 - npm  install
 - npm run start
 - npm run dev**
